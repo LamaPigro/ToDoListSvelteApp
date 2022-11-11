@@ -3,6 +3,7 @@
   
   export let todo
   export let pos
+
 </script>
 
 <div>

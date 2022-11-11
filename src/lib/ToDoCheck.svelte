@@ -2,19 +2,26 @@
   import {tododb} from "./store"
   export let pos
 
-  let box
+  let checkbox
   
   function updateTodo() {
-    if(box.checked){
-      tododb[pos].done.set(true)
-      console.log(tododb.done)
+    if(checkbox){
+      tododb.update(oldValue => {
+        oldValue[pos].done = true
+        
+        
+        console.log(oldValue[pos].done)
+        return oldValue
+      })
     } else {
-      tododb[pos].done.set(false)
-      console.log(tododb.done)
+      tododb.update(oldValue => {
+        oldValue[pos].done = false
+        return oldValue
+      })
     }
   }
 </script>
 
 <div>
-  <input on:click={updateTodo} bind:value={box} type="checkbox" class="checkbox checkbox-info" />
+  <input bind:checked={checkbox} on:click={updateTodo} type="checkbox" class="checkbox checkbox-info" />
 </div>

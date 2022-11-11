@@ -10,12 +10,10 @@
 <main>
   <h1>ToDo List</h1>
   <ToDoCounter />
-    <div>
-      {#each $tododb as todo, index}
-      <ToDoView todo={todo} pos={index}/>
-      {/each}
-    </div>
-    <AddTodoForm />
+    {#each $tododb as todo, index}
+    <ToDoView todo={todo} pos={index}/>
+    {/each}
+  <AddTodoForm />
 </main>
 
 <style>
